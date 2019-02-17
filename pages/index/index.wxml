@@ -1,0 +1,20 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获得授权 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+</view>
+<view class="buttons">
+  <button bindtap="clickMe">{{ msg }}</button>
+  <button bindtap="clickMe2">蓝牙</button>
+  <button bindtap="wifibutton">Wi-Fi</button>
+  <button bindtap="accbutton">加速度</button>
+</view>
+<official-account></official-account>

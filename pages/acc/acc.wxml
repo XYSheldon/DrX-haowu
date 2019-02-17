@@ -1,0 +1,9 @@
+<image class="arrow" animation="{{animation}}" src="{{img}}"></image>
+<view class="accdata">
+  <text>{{[x,y,z]}}</text>
+</view>
+<view>
+
+  <button type="primary" bindtap="start">加速度开始</button>
+  <button bindtap="stop">停止</button>
+</view>

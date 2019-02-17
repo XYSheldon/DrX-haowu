@@ -1,0 +1,17 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/ble/ble",
+    "pages/wifi/wifi",
+    "pages/acc/acc"
+  ],
+  "window":{
+    "enablePullDownRefresh":true,
+    "backgroundTextStyle":"dark",
+    "backgroundColor": "#aaa",
+    "navigationBarBackgroundColor": "#616161",
+    "navigationBarTitleText": "DrX的好物~",
+    "navigationBarTextStyle":"white"
+  }
+}
