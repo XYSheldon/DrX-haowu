@@ -11,22 +11,28 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   clickMe() {
-      wx.startSoterAuthentication({
-        requestAuthModes: ['fingerPrint'],
-        challenge: '123456',
-        authContent: '请用指纹解锁',
-        success(res) {
-          wx.vibrateShort(),
+    wx.startSoterAuthentication({
+      requestAuthModes: ['fingerPrint'],
+      challenge: '123456',
+      authContent: '请用指纹解锁',
+      success(res) {
+        wx.vibrateShort(),
           wx.showToast({
             title: '指纹成功弹窗测试~',
             icon: 'success',
             duration: 2000
           })
-        }
-      })
-    this.setData({
-      msg: '好玩吗？'
-    })
+      }
+    });
+    if (this.data.msg == '点我看看~') {
+      this.setData({
+        msg: '好玩吗？'
+      });
+    }else{
+      this.setData({
+        msg: '点我看看~'
+      });
+    }
   },
   clickMe2() {
     wx.navigateTo({
