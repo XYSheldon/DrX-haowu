@@ -7,8 +7,9 @@ Page({
     this.stopSearch();
   },
   onPullDownRefresh() {
-    this.startSearch(),
-      wx.stopPullDownRefresh();
+    this.startSearch();
+    wx.stopPullDownRefresh();
+    console.info(this.wifiList);
   },
   startSearch() {
     const getWifiList = () => {

@@ -28,11 +28,17 @@ Page({
       this.setData({
         msg: '好玩吗？'
       });
-    }else{
+    } else {
       this.setData({
         msg: '点我看看~'
       });
-    }
+    };
+    wx.cloud.callFunction({
+      name: 'test',
+      complete: res => {
+        console.log('callFunction test result: ', res)
+      }
+    })
   },
   clickMe2() {
     wx.navigateTo({
@@ -56,6 +62,9 @@ Page({
     })
   },
   onLoad: function() {
+    wx.cloud.init({
+      traceUser: true
+    });
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
