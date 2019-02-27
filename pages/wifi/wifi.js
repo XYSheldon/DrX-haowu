@@ -9,7 +9,6 @@ Page({
   onPullDownRefresh() {
     this.startSearch();
     wx.stopPullDownRefresh();
-    console.info(this.wifiList);
   },
   startSearch() {
     const getWifiList = () => {
@@ -27,7 +26,8 @@ Page({
             this.setData({
               wifiList
             })
-          })
+          });
+          console.log(this.wifiList);
         },
         fail(err) {
           console.error(err);

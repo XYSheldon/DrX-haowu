@@ -10,6 +10,28 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
+  localunlock()
+  {
+    wx.request({
+      url: 'http://192.168.10.10:8080/cgi-bin/web2ser?18', // 仅为示例，并非真实的接口地址
+      method:'GET',
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success(res) {
+        console.log(res.data);
+        if (res.data.match('GPIO')=='GPIO')
+        {
+          wx.showToast({
+            title: '成功',
+            icon: 'success',
+            duration: 2000,
+            mask: true
+          })
+        };
+      }
+    })
+  },
   clickMe() {
     wx.startSoterAuthentication({
       requestAuthModes: ['fingerPrint'],

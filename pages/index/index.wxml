@@ -16,5 +16,6 @@
   <button bindtap="clickMe2">蓝牙</button>
   <button bindtap="wifibutton">Wi-Fi</button>
   <button bindtap="accbutton">加速度</button>
+  <button bindtap="localunlock">解锁195036(Local)</button>
 </view>
 <official-account></official-account>
