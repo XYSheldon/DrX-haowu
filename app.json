@@ -4,7 +4,8 @@
     "pages/logs/logs",
     "pages/ble/ble",
     "pages/wifi/wifi",
-    "pages/acc/acc"
+    "pages/acc/acc",
+    "pages/btlo/ble"
   ],
   "window":{
     "enablePullDownRefresh":true,

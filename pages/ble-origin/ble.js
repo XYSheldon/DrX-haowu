@@ -121,12 +121,9 @@ Page({
     wx.getBLEDeviceServices({
       deviceId,
       success: (res) => {
-        var reg = RegExp(/FFE0/);
         console.log('device services:', res.services);
-        console.log('Length of services:', res.services.length);
-        for (let i = res.services.length - 1; i >= 0; i--) {
-          var str = res.services[i].uuid;
-          if (str.match(reg)) {
+        for (let i = res.services.length - 1; i>=0; i--) {
+          if (res.services[i].isPrimary) {
             this.getBLEDeviceCharacteristics(deviceId, res.services[i].uuid);
             console.log(res.services[i].uuid);
             return

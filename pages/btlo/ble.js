@@ -26,6 +26,12 @@ Page({
     connected: false,
     chs: [],
   },
+  onUnload() {
+    this.closeBluetoothAdapter();
+  },
+  onLoad() {
+    this.openBluetoothAdapter();
+  },
   openBluetoothAdapter() {
     wx.openBluetoothAdapter({
       success: (res) => {
@@ -197,7 +203,7 @@ Page({
   },
   writeBLECharacteristicValue() {
     // 向蓝牙设备发送一个0x00的16进制数据
-    let buffer = new ArrayBuffer(1)
+    let buffer = new ArrayBuffer(4)
     let dataView = new DataView(buffer)
     dataView.setUint8(0, Math.random() * 255 | 0)
     wx.writeBLECharacteristicValue({

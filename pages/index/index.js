@@ -10,18 +10,16 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
-  localunlock()
-  {
+  localunlock() {
     wx.request({
       url: 'http://192.168.10.10:8080/cgi-bin/web2ser?18', // 仅为示例，并非真实的接口地址
-      method:'GET',
+      method: 'GET',
       header: {
         'content-type': 'application/json' // 默认值
       },
       success(res) {
         console.log(res.data);
-        if (res.data.match('GPIO')=='GPIO')
-        {
+        if (res.data.match('GPIO') == 'GPIO') {
           wx.showToast({
             title: '成功',
             icon: 'success',
@@ -55,8 +53,15 @@ Page({
         msg: '点我看看~'
       });
     };
+    wx.cloud.init({
+      traceUser: true,
+      env: 'lock'
+    });
     wx.cloud.callFunction({
-      name: 'test',
+      name: 'edit_admins',
+      data: {
+        op: 'add'
+      },
       complete: res => {
         console.log('callFunction test result: ', res)
       }
@@ -65,6 +70,11 @@ Page({
   clickMe2() {
     wx.navigateTo({
       url: '../ble/ble'
+    })
+  },
+  btunlock() {
+    wx.navigateTo({
+      url: '../btlo/ble'
     })
   },
   wifibutton() {
@@ -84,9 +94,7 @@ Page({
     })
   },
   onLoad: function() {
-    wx.cloud.init({
-      traceUser: true
-    });
+
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
